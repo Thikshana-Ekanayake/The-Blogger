@@ -1,45 +1,51 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  Outlet
 } from "react-router-dom";
-import Register from "./pages/Regsiter.jsx";
+import Register from "./pages/Register.jsx";
 import Home from "./pages/Home.jsx";
 import Single from "./pages/Single.jsx";
 import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
+import Footer from "./components/Footer.jsx";
+import Navbar from "./components/Navbar.jsx";
 
+const Layout = () => {
+  return (
+      <>
+        <Navbar/>
+        <Outlet/>
+        <Footer/>
+      </>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
-  },
-
-  {
-    path: "/Register",
-    element: <Register/>,
-  },
-
-  {
-    path: "/Single",
-    element: <Single/>,
-  },
-
-  {
-    path: "/Login",
-    element: <Login/>,
-  },
-
-  {
-    path: "/write",
-    element: <write/>,
+    element: <Layout/>,
+    children: [
+      {
+        path: "/post/:id",
+        element: <Single/>
+      },
+      {
+        path: "/write",
+        element: <Write/>
+      }
+    ]
   },
 ]);
 
 function App() {
-  return <div>
-    <RouterProvider router={router} />
-  </div>;
+  return (
+      <div className="app">
+          <div className="container">
+              <RouterProvider router={router} />
+          </div>
+      </div>
+  );
 }
 
 export default App;
