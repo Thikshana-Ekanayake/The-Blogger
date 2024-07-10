@@ -10,7 +10,7 @@ import Login from "./pages/Login.jsx";
 import Write from "./pages/Write.jsx";
 import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar.jsx";
-
+import "./style.scss";
 const Layout = () => {
   return (
       <>
@@ -34,8 +34,14 @@ const router = createBrowserRouter([
         path: "/write",
         element: <Write/>
       }
+
     ]
   },
+
+    {
+        path : "/login",
+        element: <Login />
+    }
 ]);
 
 function App() {
