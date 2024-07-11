@@ -3,8 +3,9 @@ $lightGreen: #b9e7e7;
 .app {
   display: flex;
   justify-content: center;
+
   .container {
-    width: 100vw;
+    width: 1024px;
 
     .link {
       text-decoration: none;
@@ -82,6 +83,7 @@ $lightGreen: #b9e7e7;
           h6 {
             font-size: 16px;
             font-weight: 300;
+            
           }
 
           span {
